@@ -33,6 +33,8 @@ a) ∀x∀yP(x,y) b) ∀x∃yP(x,y) c) ∃x∀yP(x,y) d) ∃x∃yP(x,y)
 """
 
 #Part 1.
+Dlist = [0,1,2,3,4,5,6,7,8,9,10]
+
 
 # a) ∃x P(x), where P(x) is the statement “x<2”.
 
