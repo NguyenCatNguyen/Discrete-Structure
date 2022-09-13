@@ -1,5 +1,5 @@
 """
-Name: Cat Nguyen
+Author: Nguyen Cat Nguyen
 Date: 9/9/2022
 Assigment: 2
 
@@ -30,15 +30,33 @@ where P(x,y): x ∙ y = 0. Show the values in the domain that either make the as
 a) ∀x∀yP(x,y) b) ∀x∃yP(x,y) c) ∃x∀yP(x,y) d) ∃x∃yP(x,y)
 • Print out a line between each of the above indicating which number your program is answering, (e.g., 1b).
 • Provide comments that explain what each line of code is doing. See rubric below.
+
+
 """
 
 #Part 1.
 Dlist = [0,1,2,3,4,5,6,7,8,9,10]
 
 
-# a) ∃x P(x), where P(x) is the statement “x<2”.
+# a) ∃x P(x), where P(x) is the statement “x<2”
+"""
+Create a loop
+
+"""
+def a(L):
+    print("a) ∃x P(x), where P(x) is the statement “x<2. ")
+    x = 0
+    while x != 9:
+        if L[x] < 2:
+            print(f"If x = {L[x]} then the statement ∃x P(x) is truth. ").
+
+
+
+
 
 # b) ∀x P(x), where P(x) is the statement “x<2”.
+def b(L):
+
 
 # c) ∃x (P(x) ∨ Q(x)) where P(x) is the statement “x<2” and where Q(x) is the statement “x>7”
 
