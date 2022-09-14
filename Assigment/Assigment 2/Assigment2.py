@@ -35,7 +35,7 @@ a) ∀x∀yP(x,y) b) ∀x∃yP(x,y) c) ∃x∀yP(x,y) d) ∃x∃yP(x,y)
 """
 
 #Part 1.
-Dlist = [0,1,2,3,4,5,6,7,8,9,10]
+Dlist = [10]
 
 
 # a) ∃x P(x), where P(x) is the statement “x<2”
@@ -43,19 +43,36 @@ Dlist = [0,1,2,3,4,5,6,7,8,9,10]
 Create a loop
 
 """
-def a(L):
-    print("a) ∃x P(x), where P(x) is the statement “x<2. ")
-    x = 0
-    while x != 9:
-        if L[x] < 2:
-            print(f"If x = {L[x]} then the statement ∃x P(x) is truth. ").
 
+for_some = None
+for_all = None
+
+def P(x):
+    return x < 2
+
+def Q(x):
+    return x > 7
+
+    
+
+
+
+
+
+
+
+
+for x in Dlist:
+    if P(x):
+        for_some = True
+print(f"{for_some}")
 
 
 
 
 # b) ∀x P(x), where P(x) is the statement “x<2”.
-def b(L):
+
+
 
 
 # c) ∃x (P(x) ∨ Q(x)) where P(x) is the statement “x<2” and where Q(x) is the statement “x>7”
