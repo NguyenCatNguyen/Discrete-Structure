@@ -136,12 +136,16 @@ def FA(list):
 def FS(list):
     return any(list)
 
-# Create a function that print 
+# Create a function that print
 
 
 
-
-
+# Define for all.
+def FA(list):
+    return all(list)
+# Define for some.
+def FS(list):
+    return any(list)
 
 #Let the truth table for P(x) as P.
 P = Form(Domain,1)
@@ -185,9 +189,9 @@ print(f"=> Answer: This statement is {AND(NOT(FA(Z)),FS(NOTF(Z)))}\n")
 
 #Part2: P(x,y): x ∙ y = 0.
 #Declare function x*y = 0
-def P(x,y):
-    return x*y == 0
 
+def T(A,B):
+    #
 #a) ∀x∀yP(x,y)
 
 # b) ∀x∃yP(x,y)
