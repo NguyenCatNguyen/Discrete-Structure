@@ -1,35 +1,10 @@
-"""
-
-You may use any language you want, but if you want help from me or one of the
-SIs, you should probably use C++ or Python.
-• Label each output with a description, e.g., “1a. Union of R1 and R2”
-• Use the methods or functions inherent in the language and/or using methods or
-functions you create. Like previous assignments, don’t “hard code” a solution you
-did on paper as the output.
-• Create a program for the following:
-1. For the relations:
-R1 = {(1,1), (2,2), (3,3)} and R2 = {(1,1), (1,2), (1,3), (1,4)} perform the following set operations and display the results:
-a) R1∪R2 b) R1∩R2 c) R1−R2 d) R2−R1
-2. Display S ◦ R, where:
-R is the relation from A = {1, 2, 3} to B = {1, 2, 3, 4} with R = {(1, 1), (1, 4), (2, 3), (3, 1), (3, 4)}
-S is the relation from B = {1, 2, 3, 4} to C = {0, 1, 2} with S = {(1, 0), (2, 0), (3, 1), (3, 2), (4, 1)} 2
-.
-4. For the relation R = {(x, y) | x + y = 0} on the set {-10, ..., -1, 0, 1, ..., 10}:
-3. For R = {(1, 1), (1, 4), (2, 3), (3, 1), (3, 4)}, show R
-a) Show R as a set of ordered pairs.
-b) Show whether R is reflexive or not.
-c) Show whether R is symmetric or not.
-d) Show whether R is antisymmetric or not. e) Show whether R is transitive or not.
-• Provide comments that explain what each line of code is doing. See rubric below.
-"""
 
 """
 Authour: Nguyen Cat Nguyen
 KUID: 3077463
 Date: Tuesday September 27, 2022
+Assignment: Assignment 3
 """
-
-
 
 #Main function space (need more comment on function)
 
@@ -72,18 +47,49 @@ def order_pair(M):
     #Create an empty list to hold the value of ordered pairs.
     OP = []
     for (x,y) in M:
-        OP.extend([(x,x), (y,y) , (x,y), (y,x)])
+        OP.extend([(x,x),(y,y),(x,y),(y,x)])
+    #Using extend method to add the value of ordered pairs to the empty list.
     OP = list(set(OP))
+    #Using set method to remove duplicates and convert back to list.
     return OP
 
 #Function that check to see if list is reflexive or not.(Part4)
-def reflexive(M,A):
-    for x in A:
+def reflexive(M,set):
+    for x in set:
         if (x,x) in M:
+            #Chekc if (x,x) is in M then return True.
             return True
         else:
             return False
-            
+
+#Function that check to see if list is symmetric or not.(Part4)
+def symmetric(M):
+    for (x,y) in M:
+        if (y,x) in M:
+            return True
+        else:
+            return False
+
+#Function that check to see if list is antisymmetric or not.(Part4)
+def antisymmetric(M,S):
+    for x,y,z in S:
+        if (x,y) in M and (y,z) in M:
+            if (x,z) in M:
+                return True
+            else:
+                return False
+
+#Function that check to see if list is transitive or not.(Part4)
+def transitive(M,set):
+    for (x,y) in M:
+        for (a,b) in M:
+            if y == a:
+                if (x,b) in M:
+                    return True
+                else:
+                    return False
+
+
 
 
 
@@ -127,7 +133,12 @@ A = set(range(-10,11))
 print("a) Show R as a set of ordered pairs.\n")
 print(f"=> R = {order_pair(M)}\n")
 #b) Show whether R is reflexive or not.
-print("b) Show whether R is reflexive or not.\n")
-
-    
+print("b) Show whether R is reflexive or not.")
 print(f"=> R is reflexive: {reflexive(M,A)}\n")
+#c) Show whether R is symmetric or not.
+print("c) Show whether R is symmetric or not.")
+print(f"=> R is symmetric: {symmetric(M)}\n")
+#d) Show whether R is antisymmetric or not.
+print("d) Show whether R is antisymmetric or not.")
+print(f"=> R is antisymmetric: {antisymmetric(M,A)}\n")
+

@@ -1,5 +1,7 @@
-x = []
-for value in range(-10,10):
-    x.append(value)
-
-print(x)
+k = [(1,2),(2,1)]
+for (x,y) in k:
+    if (y,x) in k:
+        if x != y:
+            print("True")
+        else:
+            print("False")
