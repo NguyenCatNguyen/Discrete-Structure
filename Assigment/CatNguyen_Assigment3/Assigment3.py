@@ -33,32 +33,41 @@ Date: Tuesday September 27, 2022
 
 #Main function space (need more comment on function)
 
-#Function to find the union of two list of tuples
+#Function to find the union of two list of tuples (Part1)
 def union(R1, R2):
+    #Put all value of R1 and R2 into list U.
     U = R1 + R2
     #Using set function to remove duplicates and convert back to list.
     U = list(set(U))
     return U
 
 
-#Function to find the intersection of two list of tuples
+#Function to find the intersection of two list of tuples (Part1)
 def intersection(R1, R2):
     I = [x for x in R1 if x in R2]
+    #Create I list that hold x value if x value in both R1 and R2.
     return I
 
-#Function to find the difference of two list of tuples
+#Function to find the difference of two list of tuples (Part1)
 def difference(R1, R2):
     D = [x for x in R1 if x not in R2]
+    #Create D list that hold x value for x value in R1 but not in R2.
     return D
 
-#Function to find the composition of two list of tuples
+#Function to find the composition of two list of tuples (Part3 and Part 2)
 def composition(S, R):
     C = []
+    #Create an empty list to hold the composition of two list.
     for x in R:
         for y in S:
+            #Loop throught all the value in S.
             if x[1] == y[0]:
+                #if x[1] = y[0] then add the value of (x[0],y[1]) to empty list C
                 C.append((x[0], y[1]))
     return C
+
+
+
 
 
 
@@ -90,5 +99,18 @@ print(f"=> S ◦ R = {composition(S, R)}\n")
 print("3. Display R ◦ R\n")
 print(f"=> R ◦ R = {composition(R,R)}\n")
 
-#Part 4 of the assigment.
+#Part 4 of the assigmR = [(1, 1), (1, 4), (2, 3), (3, 1), (3, 4)]
+S = [(1, 0), (2, 0), (3, 1), (3, 2), (4, 1)]
 # For the relation R = {(x, y) | x + y = 0} on the set {-10, ..., -1, 0, 1, ..., 10}:
+
+#Create a list of tuples M that hold all the value of x and y that satisfy the condition x + y = 0.
+M = [(x,y) for x in range(-10,11) for y in range(-10,11) if x + y == 0]
+
+#Function to show M as a set of ordered pairs.
+def order_pair(M):
+    #Create a list that hold value of (x,x),(y,y),(x,y),(y,x) if x and y in M.
+    for x in M:
+        N = [(x[0],x[0]),(x[1],x[1]),(x[0],x[1]),(x[1],x[0])]
+        return N
+#Test print
+print(order_pair(M))
