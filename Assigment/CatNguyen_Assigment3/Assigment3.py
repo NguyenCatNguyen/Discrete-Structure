@@ -21,14 +21,17 @@ b) Show whether R is reflexive or not.
 c) Show whether R is symmetric or not.
 d) Show whether R is antisymmetric or not. e) Show whether R is transitive or not.
 • Provide comments that explain what each line of code is doing. See rubric below.
+"""
 
+"""
+Authour: Nguyen Cat Nguyen
+KUID: 3077463
+Date: Tuesday September 27, 2022
 """
 
 
-#Main function
-#Let create two list of tuples R1 and R2
-R1 = [(1,1), (2,2), (3,3)]
-R2 = [(1,1), (1,2), (1,3), (1,4)]
+
+#Main function space (need more comment on function)
 
 #Function to find the union of two list of tuples
 def union(R1, R2):
@@ -60,7 +63,12 @@ def composition(S, R):
 
 
 #Part 1 of the assigment.
+#Let create two list of tuples R1 and R2.
+R1 = [(1,1), (2,2), (3,3)]
+R2 = [(1,1), (1,2), (1,3), (1,4)]
+
 print("1. Perform the following set operations and display the results: \n")
+#Print out the result for R1 and R2.
 print(f"a) R1 U R2 : {union(R1, R2)}\n")
 print(f"b) R1 ∩ R2 : {intersection(R1, R2)}\n")
 print(f"c) R1 - R2 : {difference(R1, R2)}\n")
@@ -74,4 +82,13 @@ print(f"d) R2 - R1 : {difference(R2, R1)}\n")
 R = [(1, 1), (1, 4), (2, 3), (3, 1), (3, 4)]
 S = [(1, 0), (2, 0), (3, 1), (3, 2), (4, 1)]
 print(f"2. Display S ◦ R:\n")
-print(f"S ◦ R : {composition(S, R)}\n")
+print(f"=> S ◦ R = {composition(S, R)}\n")
+
+
+#Part 3 of the assigment.
+# For R = [(1, 1), (1, 4), (2, 3), (3, 1), (3, 4)], show R ◦ R
+print("3. Display R ◦ R\n")
+print(f"=> R ◦ R = {composition(R,R)}\n")
+
+#Part 4 of the assigment.
+# For the relation R = {(x, y) | x + y = 0} on the set {-10, ..., -1, 0, 1, ..., 10}:
