@@ -67,6 +67,23 @@ def composition(S, R):
     return C
 
 
+#Function to show M as a set of ordered pairs.(Part4).
+def order_pair(M):
+    #Create an empty list to hold the value of ordered pairs.
+    OP = []
+    for (x,y) in M:
+        OP.extend([(x,x), (y,y) , (x,y), (y,x)])
+    OP = list(set(OP))
+    return OP
+
+#Function that check to see if list is reflexive or not.(Part4)
+def reflexive(M,A):
+    for x in A:
+        if (x,x) in M:
+            return True
+        else:
+            return False
+            
 
 
 
@@ -99,18 +116,18 @@ print(f"=> S ◦ R = {composition(S, R)}\n")
 print("3. Display R ◦ R\n")
 print(f"=> R ◦ R = {composition(R,R)}\n")
 
-#Part 4 of the assigmR = [(1, 1), (1, 4), (2, 3), (3, 1), (3, 4)]
-S = [(1, 0), (2, 0), (3, 1), (3, 2), (4, 1)]
+#Part 4 of the assigmnet.
 # For the relation R = {(x, y) | x + y = 0} on the set {-10, ..., -1, 0, 1, ..., 10}:
 
 #Create a list of tuples M that hold all the value of x and y that satisfy the condition x + y = 0.
 M = [(x,y) for x in range(-10,11) for y in range(-10,11) if x + y == 0]
+#Declare set A that hold all the value from -10 to 10.
+A = set(range(-10,11))
+#a) Show R as a set of ordered pairs.
+print("a) Show R as a set of ordered pairs.\n")
+print(f"=> R = {order_pair(M)}\n")
+#b) Show whether R is reflexive or not.
+print("b) Show whether R is reflexive or not.\n")
 
-#Function to show M as a set of ordered pairs.
-def order_pair(M):
-    #Create a list that hold value of (x,x),(y,y),(x,y),(y,x) if x and y in M.
-    for x in M:
-        N = [(x[0],x[0]),(x[1],x[1]),(x[0],x[1]),(x[1],x[0])]
-        return N
-#Test print
-print(order_pair(M))
+    
+print(f"=> R is reflexive: {reflexive(M,A)}\n")
