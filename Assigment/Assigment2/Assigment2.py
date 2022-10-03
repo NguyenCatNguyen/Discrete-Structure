@@ -197,3 +197,9 @@ def T(A,B):
 # b) ∀x∃yP(x,y)
 # c) ∃x∀yP(x,y)
 # d) ∃x∃yP(x,y)
+# e) ∀x∀yP(x,y) => ∃x∃yP(x,y)
+# f) ∃x∃yP(x,y) => ∀x∀yP(x,y)
+# g) ∀x∃yP(x,y) => ∃x∀yP(x,y)
+# h) ∃x∀yP(x,y) => ∀x∃yP(x,y)
+
+
