@@ -7,7 +7,7 @@ Assignment: Assignment 4
 
 
 #Functions for all the part of the assignment.
-#  
+#Function to find the order pair of the relation.
 def order_pair(M):
     #Create an empty list to hold the value of ordered pairs.
     OP = []
@@ -18,6 +18,7 @@ def order_pair(M):
     #Using set method to remove duplicates and convert back to list.
     return OP
 
+#Function to check if the relation is reflexive or not.
 def reflexive(M,set):
     count = 0
     for x in set:
@@ -30,20 +31,18 @@ def reflexive(M,set):
     else:
         return False
 
+#Function to check if the relation is transitive or not.
 def transitive(M,S):
     #For x,y,z in set s, check if (x,y) in M and (y,z) in M then (x,z) in M.
     #Check all the value in M that satisfy the condition above.
     count = 0
     for x in S:
         for y in S:
-            for z in S:
-                if (x,y) in M and (y,z) in M:
-                    if (x,z) in M:
-                        count += 1
-    if count == len(S)**3:
-        return True
-    else:
-        return False
+            if (x,y) in M:
+                for z in S:
+                    if (y,z) in M and (x,z) not in M:
+                        return False
+    return True
 
 #Function to check if the relation is symmetric or not.
 def symmetric(M):
@@ -60,17 +59,10 @@ def symmetric(M):
 
 #Function to check if the relation is antisymmetric or not.
 def antisymmetric(M):
-    count = 0
     for (x,y) in M:
-        if (y,x) in M:
-            #check if (y,x) in M, if yes then check if x = y.
-            if x == y:
-                count += 1
-    if count == 0:
-        return True
-    else:
-        return False
-
+        if (y,x) not in M:
+            return True
+    return False
 
 
 #Function to find Reflexive Closure. 
@@ -117,7 +109,7 @@ def CT(M,s):
 
 #Function to find Equivalence Relation.
 def CE(M,s):
-    #Check if R is reflexive
+    #Check if R is reflexive, symmetric and transitive. If yes then it is an equivalence relation.
     if reflexive(M,s) == True:
         if symmetric(M) == True:
             if transitive(M,s) == True:
@@ -131,16 +123,17 @@ def CE(M,s):
 
 #Function to find Poset.
 def CP(M,s):
+    #Check if R is reflexive, antisymmetric and transitive. If yes then it is a poset.
     if reflexive(M,s) == True:
         if antisymmetric(M) == True:
             if transitive(M,s) == True:
-                print("b) R is a poset\n")
+                print("c) R is a poset\n")
             else:
-                print("b) R is not a poset, because it is not transitive\n")
+                print("c) R is not a poset, because it is not transitive\n")
         else:
-            print("b) R is not a poset, because it is not antisymmetric\n")
+            print("c) R is not a poset, because it is not antisymmetric\n")
     else:
-        print("b) R is not a poset, because it is not reflexive\n")
+        print("c) R is not a poset, because it is not reflexive\n")
 
 
 
@@ -148,30 +141,36 @@ def CP(M,s):
 def Part1(R,s):
     print(f"For relationship R= {R} on the set {s}")
     print("a) R order pair = ", order_pair(R))
+    #Excercute the code to find reflexive closure.
     CR(R,s)
    
 
 def Part2(R,s):
     print(f"For relationship R= {R} on the set {s}")
     print("a) R order pair = ", order_pair(R))
+    #Excercute the code to find symmetric closure.
     CS(R)
  
 
 def Part3(R,se):
     print(f"For relationship R= {R} on the set {se}")
     print("a) R order pair = ", order_pair(R))
+    #Excercute the code to find transitive closure.
     CT(R,se)
 
 def Part4(R,s):
     print(f"For relationship R= {R} on the set {s}")
     print("a) R order pair = ", order_pair(R))
+    #Excercute the code to find equivalence relation.
     CE(R,s)
 
 def Part5(R,s):
     print(f"For relationship R= {R} on the set {s}")
     print(f"a) S = {s}")
     print(f"b) R = {R}")
+    #Excercute the code to find the poset.
     CP(R,s)
+
 
 
 
@@ -193,9 +192,9 @@ print("-"*70)
 relation3 = {(1,2), (4,4), (2,1), (3,3)}
 relation4 = {(1,2),(3,3)}
 print("\nPart 2 - Symmetric")
-print("2.d")
+print("2.D")
 Part2(relation3,set1)
-print("2.e")
+print("2.E")
 Part2(relation4,set1)
 print("-"*70)
 
@@ -204,9 +203,9 @@ relation5 = {("a","b"),("d","d"),("b","c"),("a","c")}
 set6 = {1,2,3}
 relation6 = {(1,1),(1,3),(2,2),(3,1),(3,2)}
 print("\nPart 3 - Transitive")
-print("3.d")
+print("3.D")
 Part3(relation5,set2)
-print("3.e")
+print("3.E")
 Part3(relation6,set6)
 print("-"*70)
 
@@ -217,9 +216,9 @@ set7 = {1,2,3}
 relation8 = {("a","a"),("b","b"),("c","c"),("b","c"),("c","b")}
 set8 = {"a","b","c"}
 print("\nPart 4 - Equivalence")
-print("4.d")
+print("4.D")
 Part4(relation7,set7)
-print("4.e")
+print("4.E")
 Part4(relation8,set8)
 print("-"*70)
 
@@ -229,9 +228,9 @@ set9 = {1,2,3,4}
 relation10 = {(0, 0), (0, 1), (0, 2), (0, 3), (1, 0), (1, 1), (1, 2), (1, 3), (2, 0), (2, 2), (3, 3)}
 set10 = {0, 1, 2, 3}
 print("\nPart 5 - Poset")
-print("5.d")
+print("5.D")
 Part5(relation9,set9)
-print("5.e")
+print("5.E")
 Part5(relation10,set10)
 print("-"*70)
 
