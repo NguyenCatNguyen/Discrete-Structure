@@ -64,13 +64,14 @@ def main(A,B,f,num):
     if check_function(A,B,f) == True:
         print("a) The relation is a function.")
         print("b) The relation is:")
-        print(f"The relation is injective: {check_injective(A,B,f)}")
-        print(f"The relation is surjective: {check_surjective(B,f)}")
+        print(f"- The relation is injective: {check_injective(A,B,f)}")
+        print(f"- The relation is surjective: {check_surjective(B,f)}")
         if check_bijective(A,B,f) == True:
             print("The relation is bijective.")
             check_inverse(A,B,f)
     else:
         print("a) The relation is not a function.")
+    print()
 
 #Test case
 #1
